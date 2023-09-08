@@ -1,7 +1,21 @@
 import { expect, it } from "vitest";
 
+
+// Method 1: Use Interface and Index Signatures
+interface Cache {
+  [id:string]:string
+} 
+
+// Method 2: Use Type Alias and Index Signatures
+type Cache2 = {
+  [id:string]:string
+}
+
+// Method 3: Use Record
+type Cache3 = Record<string, string>
+
 const createCache = () => {
-  const cache = {};
+  const cache:Cache = {};
 
   const add = (id: string, value: string) => {
     cache[id] = value;
